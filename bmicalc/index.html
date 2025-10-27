@@ -3,29 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>BmiCalc</title>
 </head>
 <body>
     <script>
+        //pobieranie
         let wagaKG = parseFloat(prompt("Podaj wagę ciała w KG"))
         let wzrostCM = parseFloat(prompt("Podaj wzrost w CM"))
+        let imie = prompt("Podaj imię (opcjonalnie)")
 
-        const cmToM = 0.01
 
-        let wrzostM = wzrostCM*cmToM
+        //liczenie
+        const cmToM = 100
 
+        let wrzostM = wzrostCM/cmToM
+
+
+        //liczenie bmi
         const LiczBMI = (waga, wzrost) =>{
             let BMI = (waga / Math.pow(wzrost, 2));
-            console.log(Math.round(BMI*100)/100)
-        if(BMI < 18.5){
-            console.log("Niedowaga")
-        }else if(BMI >= 18.5 && BMI < 25){
-            console.log("Waga prawidłowa")
+            return BMI;
+        }
+
+        //liczenie stanu
+    function ocenStan(bmi)
+    {
+        let stan = ""
+        if(bmi < 18.5){
+            stan = ("Niedowaga")
+        }else if(bmi >= 18.5 && bmi < 25){
+            stan = ("Waga prawidłowa")
         }else{
-            console.log("Nadwaga")
-        }}
+            stan = ("Nadwaga")
+        }
+    return stan;
+    }
+
+        //wywołanie
+        let wynikBMI = LiczBMI(wagaKG, wrzostM);
+        ocenStan(wynikBMI);
+
+
+        //reszta rzeczy
+        let kategorie = ['Niedowaga', 'Prawidłowa', 'Nadwaga']
+
+        for(var i = 0; i < kategorie.length; i++){
+            console.log(kategorie[i])
+        }
+
+        alert(imie + " - " + (Math.round(parseFloat(wynikBMI) * 100)/100) + " - " + ocenStan(wynikBMI))
+
         
-        LiczBMI(wagaKG, wrzostM);
+        let daneHistoryczne = [20.5, 23.1, 25.8, 17.9, 30.0]
+
+        let daneNadwagi = daneHistoryczne.filter(checkNadwaga)
+
+        function checkNadwaga(bmi){
+            return bmi >= 25    
+        }
+       
+        console.log(daneNadwagi)
+
 
         
     </script>
