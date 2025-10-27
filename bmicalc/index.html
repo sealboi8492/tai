@@ -44,16 +44,16 @@
         ocenStan(wynikBMI);
 
 
-        //reszta rzeczy
+        //katy
         let kategorie = ['Niedowaga', 'Prawidłowa', 'Nadwaga']
 
         for(var i = 0; i < kategorie.length; i++){
             console.log(kategorie[i])
         }
-
+        //wyświetlanie
         alert(imie + " - " + (Math.round(parseFloat(wynikBMI) * 100)/100) + " - " + ocenStan(wynikBMI))
 
-        
+        //filtry
         let daneHistoryczne = [20.5, 23.1, 25.8, 17.9, 30.0]
 
         let daneNadwagi = daneHistoryczne.filter(checkNadwaga)
@@ -69,3 +69,4 @@
     </script>
 </body>
 </html>
+
