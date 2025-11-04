@@ -40,19 +40,21 @@ public class CircleThingy extends Application {
                 circle.setRadius(circle.getRadius() + 5);
             }
             if(e.getCode() == KeyCode.SUBTRACT || e.getCode() == KeyCode.BACK_SPACE){
-                circle.setRadius(circle.getRadius()-5);
+                if(circle.getRadius()-5 != 0){
+                    circle.setRadius(circle.getRadius()-5);
+                }
             }
             if(e.getCode() == KeyCode.RIGHT){
-                circle.setCenterX(circle.getCenterX()+5);
+                circle.setCenterX(circle.getCenterX()+10);
             }
             if(e.getCode() == KeyCode.LEFT){
-                circle.setCenterX(circle.getCenterX()-5);
+                circle.setCenterX(circle.getCenterX()-10);
             }
             if(e.getCode() == KeyCode.UP){
-                circle.setCenterY(circle.getCenterY()-5);
+                circle.setCenterY(circle.getCenterY()-10);
             }
             if(e.getCode() == KeyCode.DOWN){
-                circle.setCenterY(circle.getCenterY()+5);
+                circle.setCenterY(circle.getCenterY()+10);
             }
         });
         primaryStage.setTitle("kułko");
