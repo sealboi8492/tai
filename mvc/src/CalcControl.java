@@ -8,12 +8,9 @@ public class CalcControl {
         this.model = model;
         this.view = view;
 
-        // Podłączanie listenerów z Kontrolera do przycisków w Widoku
         this.view.addKwadratListener(new KwadratListener());
 
     }
-
-    // Wewnętrzna klasa obsługująca kliknięcie 'Zwiększ'
     class KwadratListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             int liczba = Integer.parseInt(view.inputField.getText());
@@ -25,3 +22,4 @@ public class CalcControl {
         }
 
     }}
+
